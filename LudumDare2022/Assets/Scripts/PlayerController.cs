@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Editable Variables
-    [SerializeField] private int speed;
+    [SerializeField] private int speed = 3;
 
     //Components
     private Rigidbody2D playerBody;
