@@ -8,12 +8,10 @@ public class CountdownTimer : MonoBehaviour
 {
     float currentTime = 0f;
     float startingTime = 10f;
-    GameController gameController;
     [SerializeField] TextMeshProUGUI countdownText;
     void Start()
     {
         currentTime = startingTime;
-        gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     void Update()
@@ -23,7 +21,7 @@ public class CountdownTimer : MonoBehaviour
         if(currentTime <= 0)
         {
             currentTime = 10f;
-            gameController.changeState();
+            GameController.instance.changeState();
         }
     }
 
