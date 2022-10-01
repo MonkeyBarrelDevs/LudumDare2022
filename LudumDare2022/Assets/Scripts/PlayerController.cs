@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Editable Variables
-    [SerializeField] private int speed = 3;
+    [SerializeField] private float speed = 3;
+    [SerializeField] private float jumpPower = 3;
+    [SerializeField] private KeyCode Jump;
+    [SerializeField] private KeyCode UsePotion;
 
     //Components
     private Rigidbody2D playerBody;
@@ -14,7 +17,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        float tileMultiplier = 3;
+        speed = tileMultiplier * speed;
+        jumpPower = tileMultiplier * jumpPower;
     }
 
     private void Awake()
@@ -32,8 +37,20 @@ public class PlayerController : MonoBehaviour
         //Left and Right Movement
         playerBody.velocity = new Vector2(speed * Input.GetAxis("Horizontal"), playerBody.velocity.y);
 
-        
-        
+
+
+        //Jump
+        if (Input.GetKeyDown(Jump))
+        {
+            playerBody.velocity = new Vector2(playerBody.velocity.x, jumpPower);
+        }
+
+        //Use Potion
+        if (Input.GetKeyDown(UsePotion))
+        {
+
+        }
+
     }
 
 }
