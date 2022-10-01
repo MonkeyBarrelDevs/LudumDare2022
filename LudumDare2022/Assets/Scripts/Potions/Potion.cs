@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Potion : MonoBehaviour
 {
-    [SerializeField] protected Sprite itemSprite;
+    public Sprite ItemSprite;
     public abstract void ApplyEffect();
     public abstract void RemoveEffect();
 }
