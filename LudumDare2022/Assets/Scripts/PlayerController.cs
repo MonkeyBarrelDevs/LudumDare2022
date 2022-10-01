@@ -10,11 +10,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float baseSize = 1;
     [SerializeField] private KeyCode Jump;
     [SerializeField] private KeyCode UsePotion;
-    
 
     //Components
     private Rigidbody2D playerBody;
     private BoxCollider2D playerCollider;
+    //[SerializeField] static Potion
 
     //Other Variables
     private int jumpMax = 1;
@@ -64,12 +64,15 @@ public class PlayerController : MonoBehaviour
     private void SetSize(float scale)
     {
         gameObject.transform.localScale = new Vector2(scale,scale);
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if(collision.gameObject.tag == "Ground")
+        {
+            jumpCount = 0;
+        }
+
     }
 
 }
