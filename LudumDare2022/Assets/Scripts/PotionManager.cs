@@ -64,7 +64,7 @@ public class PotionManager : MonoBehaviour
         if(GameController.instance.GameState == GameStates.PlatformState)
             return;
         int siblingIndex = button.transform.GetSiblingIndex();
-         Debug.Log(usablePotions[siblingIndex].name);
         usablePotions.RemoveAt(siblingIndex);
+        Destroy(button.gameObject);
     }
 }
