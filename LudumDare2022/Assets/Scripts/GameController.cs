@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class GameController : MonoBehaviour
                 GameState = GameStates.PlatformState;
                 break;
             case GameStates.PlatformState:
-                GameState = GameStates.PotionState;
+                SceneController.instance.FadeToLevel(SceneManager.GetActiveScene().buildIndex);
                 break;
         }
     }
