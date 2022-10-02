@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     //Potion Variables
     private float sizeConstant;
     private float speedMultiplier = 1;
-    private float jumpMultiplier = 1;
+
 
     //Other Variables
     private int jumpMax = 1;
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         //Jump
         if (Input.GetKeyDown(Jump) && jumpCount < jumpMax)
         {
-            playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpConstant * jumpMultiplier);
+            playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpConstant);
             jumpCount++;
             player.GetComponent<AnimController>().SetJumpAnim(true);
         }
@@ -75,7 +75,10 @@ public class PlayerController : MonoBehaviour
         gameObject.transform.localScale = new Vector2(scale,scale);
         size = scale/sizeConstant;
     }
-
+    public void MultiplySpeedMultiplier(float scale)
+    {
+        speedMultiplier = speedMultiplier * scale;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -86,13 +89,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void MultiplySpeed(float multiplier)
-    {
-        speed = speed * multiplier;
-    }
 
-    public void SetSpeed(float wantedSpeed)
-    {
-        speed = wantedSpeed;
-    }
+
 }
