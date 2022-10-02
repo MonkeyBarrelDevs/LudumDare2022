@@ -1,16 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CleansePotion : Potion
+public class LSDPotion : Potion
 {
+    public static event Action LSDPotionEvent;
+
     public override void ApplyEffect()
     {
-        PotionManager.instance.RemoveAllEffects();
+        LSDPotionEvent?.Invoke();
     }
 
     public override void RemoveEffect()
     {
-        //what are you even going to cleanse lol? you just removed all the effects? 
+        LSDPotionEvent?.Invoke();
     }
 }

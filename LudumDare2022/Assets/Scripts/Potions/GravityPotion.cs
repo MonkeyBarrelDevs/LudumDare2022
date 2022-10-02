@@ -6,11 +6,17 @@ public class GravityPotion : Potion
 {
     public override void ApplyEffect()
     {
-        //Makes gravity negative
+        GravFlip();
     }
 
     public override void RemoveEffect()
     {
-        //Sets gravity back
+        GravFlip();
+    }
+
+    private void GravFlip()
+    {
+        Physics2D.gravity = -Physics2D.gravity;
+        //make character sprite flip n things
     }
 }
