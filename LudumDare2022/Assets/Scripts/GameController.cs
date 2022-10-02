@@ -28,8 +28,7 @@ public class GameController : MonoBehaviour
                 GameState = GameStates.PlatformState;
                 break;
             case GameStates.PlatformState:
-                SceneController.instance.FadeToLevel(SceneManager.GetActiveScene().buildIndex);
-                player.GetComponent<AnimController>().Die();             
+                SceneController.instance.FadeToLevel(SceneManager.GetActiveScene().buildIndex);   
                 break;
         }
     }

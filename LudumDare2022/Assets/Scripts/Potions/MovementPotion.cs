@@ -13,11 +13,11 @@ public class MovementPotion : Potion
     }
     public override void ApplyEffect()
     {
-        playerController.MultiplySpeed(speedMultiplier);
+        playerController.MultiplySpeedMultiplier(speedMultiplier);
     }
 
     public override void RemoveEffect()
     {
-        playerController.MultiplySpeed(1/speedMultiplier);
+        playerController.MultiplySpeedMultiplier(1/speedMultiplier);
     }
 }
