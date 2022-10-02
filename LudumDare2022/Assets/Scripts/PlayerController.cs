@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private int jumpMax = 1;
     private int jumpCount = 0;
     private float tileMultiplier = 3;
+    private bool isJump = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour
         {
             playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpPower);
             jumpCount++;
+            isJump = true;
         }
 
         //Use Potion
@@ -69,8 +71,14 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
         {
             jumpCount = 0;
+            isJump = false;
         }
 
+    }
+
+    public bool GetJump()
+    {
+        return isJump;
     }
 
 }
