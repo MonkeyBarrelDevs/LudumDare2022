@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class JumpPotion : Potion
 {
+    [SerializeField] private float jumpPower = 3;
+
+    private float tileMultiplier = 3;
+    private Rigidbody2D playerBody;
+    private void Start()
+    {
+        playerBody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+    }
     public override void ApplyEffect()
     {
-        //TODO:: Jumps the player
+        playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpPower);
     }
 
     public override void RemoveEffect()
