@@ -14,7 +14,7 @@ public class JumpPotion : Potion
     }
     public override void ApplyEffect()
     {
-        playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpPower);
+        playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpPower * -Mathf.Sign(Physics2D.gravity.y));
     }
 
     public override void RemoveEffect()

@@ -28,5 +28,11 @@ public class AnimController : MonoBehaviour
         anim.SetBool("Jump",player.GetComponent<PlayerController>().GetJump());
         anim.SetBool("IsVertical", player.GetComponent<Rigidbody2D>().velocity.y > 0);
 
+
+    }
+
+    public void Die()
+    {
+        anim.SetBool("IsDead", true);
     }
 }

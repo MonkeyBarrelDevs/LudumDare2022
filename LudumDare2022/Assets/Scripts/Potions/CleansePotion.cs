@@ -6,11 +6,11 @@ public class CleansePotion : Potion
 {
     public override void ApplyEffect()
     {
-        //TODO:: Removes effects of potions
+        PotionManager.instance.RemoveAllEffects();
     }
 
     public override void RemoveEffect()
     {
-        //Empty body is fine, do nothing
+        //what are you even going to cleanse lol? you just removed all the effects? 
     }
 }

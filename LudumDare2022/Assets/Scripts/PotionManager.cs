@@ -50,6 +50,14 @@ public class PotionManager : MonoBehaviour
 
     }
 
+    public void RemoveAllEffects()
+    {
+        foreach (Potion potion in activePotions){
+            potion.RemoveEffect();
+        }
+        activePotions = new();
+    }
+
     private void AddUsablePotion(int index)
     {
         //Testing
