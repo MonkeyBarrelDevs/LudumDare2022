@@ -14,18 +14,16 @@ public class PlayerController : MonoBehaviour
     //Components
     private Rigidbody2D playerBody;
     private BoxCollider2D playerCollider;
-    //[SerializeField] static Potion
+    [SerializeField] static PotionManager potManager;
 
     //Other Variables
     private int jumpMax = 1;
     private int jumpCount = 0;
-
+    private float tileMultiplier = 3;
     // Start is called before the first frame update
     void Start()
     {
-        float tileMultiplier = 3;
-        speed = tileMultiplier * speed;
-        jumpPower = tileMultiplier * jumpPower;
+
     }
 
     private void Awake()
@@ -42,14 +40,14 @@ public class PlayerController : MonoBehaviour
         \************/
 
         //Left and Right Movement
-        playerBody.velocity = new Vector2(speed * Input.GetAxis("Horizontal"), playerBody.velocity.y);
+        playerBody.velocity = new Vector2(speed * tileMultiplier * Input.GetAxis("Horizontal"), playerBody.velocity.y);
 
 
 
         //Jump
         if (Input.GetKeyDown(Jump) && jumpCount < jumpMax)
         {
-            playerBody.velocity = new Vector2(playerBody.velocity.x, jumpPower);
+            playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpPower);
             jumpCount++;
         }
 
