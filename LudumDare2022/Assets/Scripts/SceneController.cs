@@ -5,8 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public static SceneController instance;
     public Animator animator;
     private int levelToLoad;
+    
+    void Awake()
+    {
+        instance = this;
+    }
     
     public void FadeToLevel(int levelIndex)
     {
