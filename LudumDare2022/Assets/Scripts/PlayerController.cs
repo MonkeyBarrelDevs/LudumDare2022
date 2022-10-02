@@ -5,21 +5,26 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Editable Variables
-    [SerializeField] private float speed = 3;
-    [SerializeField] private float jumpPower = 3;
-    [SerializeField] private float baseSize = 1;
+    [SerializeField] public float speed = 3;
+    private float initialSpeed;
+    [SerializeField] public float jumpPower = 3;
+    private float initialJumpPower;
+    [SerializeField] public float baseSize = 1;
+    private float initialSize;
+    [SerializeField] public float sizeSpeedScalar = 1;
+    [SerializeField] public float sizeJumpScalar = 1;
     [SerializeField] private KeyCode Jump;
     [SerializeField] private KeyCode UsePotion;
 
     //Components
     private Rigidbody2D playerBody;
     private BoxCollider2D playerCollider;
-    [SerializeField] static PotionManager potManager;
+    [SerializeField] public PotionManager potManager;
 
     //Other Variables
     private int jumpMax = 1;
     private int jumpCount = 0;
-    private float tileMultiplier = 3;
+    private float tileMultiplier = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +34,9 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerBody = GetComponent<Rigidbody2D>();
+        initialSpeed = speed;
+        initialJumpPower = jumpPower;
+        initialSize = baseSize;
         SetSize(baseSize);
     }
 
@@ -54,14 +62,16 @@ public class PlayerController : MonoBehaviour
         //Use Potion
         if (Input.GetKeyDown(UsePotion))
         {
-
+            potManager.ApplyNextEffect();
         }
 
     }
 
-    private void SetSize(float scale)
+    public void SetSize(float scale)
     {
         gameObject.transform.localScale = new Vector2(scale,scale);
+        speed = initialSpeed * (scale / initialSize) * sizeSpeedScalar;
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
