@@ -16,8 +16,9 @@ public class PlayerController : MonoBehaviour
 
     //Components
     private Rigidbody2D playerBody;
-    private BoxCollider2D playerCollider;
+    private CapsuleCollider2D playerCollider;
     [SerializeField] public PotionManager potManager;
+    private GameObject player;
 
     //Potion Variables
     private float sizeConstant;
@@ -31,10 +32,6 @@ public class PlayerController : MonoBehaviour
     private float tileMultiplier = 2;
 
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     private void Awake()
     {
@@ -42,8 +39,10 @@ public class PlayerController : MonoBehaviour
 
         gameObject.transform.localScale = new Vector2(size, size);
         sizeConstant = size;
-    }
 
+        player = GameObject.FindGameObjectWithTag("Player");
+
+    }   
     // Update is called once per frame
     void Update()
     {
@@ -61,7 +60,7 @@ public class PlayerController : MonoBehaviour
         {
             playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpConstant * jumpMultiplier);
             jumpCount++;
-
+            player.GetComponent<AnimController>().SetJumpAnim(true);
         }
 
         //Use Potion
@@ -69,29 +68,22 @@ public class PlayerController : MonoBehaviour
         {
             potManager.ApplyNextEffect();
         }
-
     }
 
     public void SetSize(float scale)
     {
         gameObject.transform.localScale = new Vector2(scale,scale);
         size = scale/sizeConstant;
-        bIsJump = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground")
         {
             jumpCount = 0;
-            bIsJump = false;
+            player.GetComponent<AnimController>().SetJumpAnim(false);
         }
-
-    }
-
-    public bool GetJump()
-    {
-        return bIsJump;
     }
 
 }

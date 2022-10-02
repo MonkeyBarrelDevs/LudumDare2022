@@ -24,15 +24,18 @@ public class AnimController : MonoBehaviour
             transform.localScale = new Vector2(-1, 1);
         else if (Input.GetAxis("Horizontal") < -0.1)
             transform.localScale = new Vector2(1, 1);
-
-        anim.SetBool("Jump",player.GetComponent<PlayerController>().GetJump());
-        anim.SetBool("IsVertical", player.GetComponent<Rigidbody2D>().velocity.y > 0);
-
+      
+        anim.SetBool("IsVertical", player.GetComponent<Rigidbody2D>().velocity.y < 0);
 
     }
 
-    public void Die()
+    public void SetJumpAnim(bool bAnim)
     {
-        anim.SetBool("IsDead", true);
+        anim.SetBool("Jump", bAnim);
+    }
+
+    public void SetDieAnim(bool bAnim)
+    {
+        anim.SetBool("IsDead", bAnim);
     }
 }
