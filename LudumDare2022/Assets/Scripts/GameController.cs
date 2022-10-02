@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
     CountdownTimer Timer;
-    GameState gameState;
+    public GameStates GameState;
     
     void Awake()
     {
@@ -16,21 +16,23 @@ public class GameController : MonoBehaviour
     void Start()
     {
         Timer = GameObject.Find("Canvas").GetComponent<CountdownTimer>();
-        gameState = GameState.PotionState;
+        GameState = GameStates.PotionState;
     }
     public void changeState()
     {
-        switch(gameState){
-            case GameState.PotionState:
-                gameState = GameState.PlatformState;
+        switch(GameState){
+            case GameStates.PotionState:
+                GameState = GameStates.PlatformState;
                 break;
-            case GameState.PlatformState:
-                gameState = GameState.PotionState;
+            case GameStates.PlatformState:
+                GameState = GameStates.PotionState;
                 break;
         }
     }
-    private enum GameState{
+    
+}
+public enum GameStates
+    {
         PotionState,
         PlatformState
     }
-}

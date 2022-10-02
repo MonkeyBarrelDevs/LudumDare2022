@@ -7,7 +7,9 @@ public class PotionManager : MonoBehaviour
 {
     [SerializeField] List<Potion> selectablePotions;
     [SerializeField] GameObject potionLayoutGroup;
+    [SerializeField] GameObject potionInventoryLayout;
     [SerializeField] Button potionButtonPrefab;
+    [SerializeField] int maxPotions = 3;
     private List<Potion> usablePotions = new();
     private List<Potion> activePotions = new();
 
@@ -16,7 +18,6 @@ public class PotionManager : MonoBehaviour
         for(int i = 0; i < selectablePotions.Count; i++)
         {
             int index = i;
-            Debug.Log(selectablePotions[index].name);
             Button button = Instantiate(potionButtonPrefab, potionLayoutGroup.transform);
             button.gameObject.GetComponent<Image>().sprite = selectablePotions[index].ItemSprite;
             button.onClick.AddListener(delegate{AddUsablePotion(index);});
@@ -40,15 +41,26 @@ public class PotionManager : MonoBehaviour
 
     private void AddUsablePotion(int index)
     {
-        Potion potion = selectablePotions[index];
-        usablePotions.Add(potion);
-        //Add potion to player inventory UI
+        if(GameController.instance.GameState == GameStates.PlatformState)
+            return;
+        if(usablePotions.Count < maxPotions)
+        {
+            Potion potion = selectablePotions[index];
+            usablePotions.Add(potion);
+            Button button = Instantiate(potionButtonPrefab, potionInventoryLayout.transform);
+            button.onClick.AddListener(delegate{RemoveUsablePotion(button);});
+        }
     }
 
-    private void RemoveUsablePotion(int index)
+    private void RemoveUsablePotion(Button button)
     {
-        Potion potion = selectablePotions[index];
-        usablePotions.Remove(potion);
+        if(GameController.instance.GameState == GameStates.PlatformState)
+            return;
+        int siblingIndex = button.transform.GetSiblingIndex();
+        Debug.Log(siblingIndex);
+        usablePotions.RemoveAt(siblingIndex);
+
         //Remove potion to player inventory UI
+        Destroy(button.gameObject);
     }
 }
