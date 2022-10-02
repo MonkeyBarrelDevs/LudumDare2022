@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void SetSize(float scale)
+    public void SetSize(float scale)
     {
         gameObject.transform.localScale = new Vector2(scale,scale);
     }

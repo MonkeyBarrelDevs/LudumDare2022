@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class ShrinkPotion : Potion
 {
-   public override void ApplyEffect()
+    private GameObject playerObj;
+    private void Start()
     {
-        //TODO:: Changes the size of the player
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+    }
+    public override void ApplyEffect()
+    {
+        playerObj.GetComponent<PlayerController>().SetSize(.5f);
     }
 
     public override void RemoveEffect()
     {
-        //TODO:: Changes size back
+        playerObj.GetComponent<PlayerController>().SetSize(1f);
     }
 }
