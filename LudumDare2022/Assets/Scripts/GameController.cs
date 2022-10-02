@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     CountdownTimer Timer;
     public GameStates GameState;
+    private GameObject player;
     
     void Awake()
     {
@@ -18,6 +19,7 @@ public class GameController : MonoBehaviour
     {
         Timer = GameObject.Find("Canvas").GetComponent<CountdownTimer>();
         GameState = GameStates.PotionState;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     public void changeState()
     {
@@ -27,6 +29,7 @@ public class GameController : MonoBehaviour
                 break;
             case GameStates.PlatformState:
                 SceneController.instance.FadeToLevel(SceneManager.GetActiveScene().buildIndex);
+                player.GetComponent<AnimController>().Die();             
                 break;
         }
     }

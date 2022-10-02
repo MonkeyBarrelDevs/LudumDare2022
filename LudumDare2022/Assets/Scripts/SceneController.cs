@@ -25,6 +25,7 @@ public class SceneController : MonoBehaviour
     
     public void FadeToLevel(int levelIndex)
     {
+        Time.timeScale = 0f;
         levelToLoad = levelIndex;
         animator.SetTrigger("FadeOut");
     }
@@ -33,6 +34,11 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene(levelToLoad);
         animator.SetTrigger("FadeIn");
+    }
+
+    public void onFadeInComplete()
+    {
+        Time.timeScale = 1f;
     }
 
     public void gameEnd()
