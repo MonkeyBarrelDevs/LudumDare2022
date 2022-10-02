@@ -510,10 +510,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1039414068067904948, guid: ab0c73ee1d74c4346abe002887e39b7b, type: 3}
-      propertyPath: selectablePotions.Array.data[1]
-      value: 
-      objectReference: {fileID: 3035312043269815953, guid: cf438743d6bf73a4395658a56d4c9319, type: 3}
+    - target: {fileID: 1062431976, guid: ab0c73ee1d74c4346abe002887e39b7b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 770
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062431976, guid: ab0c73ee1d74c4346abe002887e39b7b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062431976, guid: ab0c73ee1d74c4346abe002887e39b7b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.5241699
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039414066808438285, guid: ab0c73ee1d74c4346abe002887e39b7b, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039414067659830133, guid: ab0c73ee1d74c4346abe002887e39b7b, type: 3}
+      propertyPath: m_Spacing
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1039414068067904949, guid: ab0c73ee1d74c4346abe002887e39b7b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -611,6 +627,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4690962213540500090, guid: 0cc5e11950fa4664786534f8c6ae51c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690962213540500091, guid: 0cc5e11950fa4664786534f8c6ae51c4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4690962215196138119, guid: 0cc5e11950fa4664786534f8c6ae51c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -712,10 +736,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CountdownTimer
       objectReference: {fileID: 0}
-    - target: {fileID: 6944016673847773733, guid: 028b78a463ce68a44b98921c1fb7dfee, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6944016673847773736, guid: 028b78a463ce68a44b98921c1fb7dfee, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -799,14 +819,6 @@ PrefabInstance:
     - target: {fileID: 6944016673847773736, guid: 028b78a463ce68a44b98921c1fb7dfee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6944016674373643122, guid: 028b78a463ce68a44b98921c1fb7dfee, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6944016674929569327, guid: 028b78a463ce68a44b98921c1fb7dfee, type: 3}
-      propertyPath: m_Layer
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 028b78a463ce68a44b98921c1fb7dfee, type: 3}

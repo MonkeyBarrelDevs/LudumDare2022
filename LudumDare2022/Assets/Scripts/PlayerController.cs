@@ -86,4 +86,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void MultiplySpeed(float multiplier)
+    {
+        speed = speed * multiplier;
+    }
+
+    public void SetSpeed(float wantedSpeed)
+    {
+        speed = wantedSpeed;
+    }
 }

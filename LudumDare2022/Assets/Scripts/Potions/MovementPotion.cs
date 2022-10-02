@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class MovementPotion : Potion
 {
+    [Range(1, 2)]
+    [SerializeField] float speedMultiplier = 2;
+    private PlayerController playerController;
+    void Start()
+    {
+        playerController =  GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
     public override void ApplyEffect()
     {
-        //TODO:: Enables higher jump, speed and tasteful ice physics
+        playerController.MultiplySpeed(speedMultiplier);
     }
 
     public override void RemoveEffect()
     {
-        //Sets jump and speed back, no more tasteful ice physics D:
+        playerController.MultiplySpeed(1/speedMultiplier);
     }
 }
