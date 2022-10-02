@@ -81,4 +81,13 @@ public class PlayerController : MonoBehaviour
         return isJump;
     }
 
+    public void MultiplySpeed(float multiplier)
+    {
+        speed = speed * multiplier;
+    }
+
+    public void SetSpeed(float wantedSpeed)
+    {
+        speed = wantedSpeed;
+    }
 }

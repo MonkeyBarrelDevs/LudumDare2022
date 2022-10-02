@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &361092315607592943
+--- !u!1 &7690238655240999896
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1503155443376424019}
-  - component: {fileID: 8640417504360133237}
+  - component: {fileID: 8676869007445429410}
+  - component: {fileID: 4954483293853714397}
   m_Layer: 0
-  m_Name: JumpPotion
+  m_Name: LSDPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1503155443376424019
+--- !u!4 &8676869007445429410
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 361092315607592943}
+  m_GameObject: {fileID: 7690238655240999896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 237.17244, y: 248.74422, z: 1.4993644}
+  m_LocalPosition: {x: 347.7153, y: 180.50142, z: 9.482621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8640417504360133237
+--- !u!114 &4954483293853714397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 361092315607592943}
+  m_GameObject: {fileID: 7690238655240999896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6707089d4ca559b4bbce073bdb36aad2, type: 3}
+  m_Script: {fileID: 11500000, guid: 84affdf6aebb546c1ba7daf720d7409f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  ItemSprite: {fileID: 21300000, guid: 749baf3f988d4b249919f9a5d11e30b4, type: 3}
