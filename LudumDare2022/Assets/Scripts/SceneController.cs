@@ -11,7 +11,16 @@ public class SceneController : MonoBehaviour
     
     void Awake()
     {
-        instance = this;
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
     
     public void FadeToLevel(int levelIndex)
@@ -23,6 +32,7 @@ public class SceneController : MonoBehaviour
     public void OnFadeComplete()
     {
         SceneManager.LoadScene(levelToLoad);
+        animator.SetTrigger("FadeIn");
     }
 
     public void gameEnd()
