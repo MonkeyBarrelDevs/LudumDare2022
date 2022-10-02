@@ -11,9 +11,10 @@ public class PotionManager : MonoBehaviour
     [SerializeField] GameObject potionInventoryLayout;
     [SerializeField] Button potionButtonPrefab;
     [SerializeField] int maxPotions = 3;
-    private List<Potion> usablePotions = new();
-    private List<Potion> activePotions = new();
+    public List<Potion> usablePotions = new();
+    public List<Potion> activePotions = new();
 
+    
     void Awake()
     {
         instance = this;
@@ -21,34 +22,39 @@ public class PotionManager : MonoBehaviour
 
     void Start()
     {
-        for(int i = 0; i < selectablePotions.Count; i++)
+        for (int i = 0; i < selectablePotions.Count; i++)
         {
             int index = i;
             Button button = Instantiate(potionButtonPrefab, potionLayoutGroup.transform);
             button.gameObject.GetComponent<Image>().sprite = selectablePotions[index].ItemSprite;
-            button.onClick.AddListener(delegate{AddUsablePotion(index);});
+            button.onClick.AddListener(delegate { AddUsablePotion(index); });
         }
     }
 
     public void ApplyNextEffect()
     {
-        Potion potion = usablePotions[0];
-        potion.ApplyEffect();
-        activePotions.Add(potion);
-        usablePotions.Remove(potion);
+        if (usablePotions.Count > 0)
+        { 
+            Potion potion = usablePotions[0];
+            potion.ApplyEffect();
+            activePotions.Add(potion);
+            usablePotions.Remove(potion);
+            Destroy(potionInventoryLayout.transform.GetChild(0).gameObject);
+        }
     }
-
     public void RemoveNextEffect()
     {
         Potion potion = selectablePotions[0];
         potion.RemoveEffect();
         activePotions.Remove(potion);
+
     }
 
     private void AddUsablePotion(int index)
     {
-        if(GameController.instance.GameState == GameStates.PlatformState)
-            return;
+        //Testing
+        //if(GameController.instance.GameState == GameStates.PlatformState)
+            //return;
         if(usablePotions.Count < maxPotions)
         {
             Potion potion = selectablePotions[index];
@@ -56,13 +62,14 @@ public class PotionManager : MonoBehaviour
             Button button = Instantiate(potionButtonPrefab, potionInventoryLayout.transform);
             button.image.sprite = potion.ItemSprite;
             button.onClick.AddListener(delegate{RemoveUsablePotion(button);});
+            Debug.Log("Pressed Me!");
         }
     }
 
     private void RemoveUsablePotion(Button button)
     {
-        if(GameController.instance.GameState == GameStates.PlatformState)
-            return;
+        //if(GameController.instance.GameState == GameStates.PlatformState)
+        //   return;
         int siblingIndex = button.transform.GetSiblingIndex();
         usablePotions.RemoveAt(siblingIndex);
         Destroy(button.gameObject);
