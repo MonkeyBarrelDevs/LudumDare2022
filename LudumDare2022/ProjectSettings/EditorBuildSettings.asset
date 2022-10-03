@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: d139c98efa87ec745b0e2c9023d5435f
+  - enabled: 1
+    path: Assets/Scenes/PlayerTest.unity
+    guid: af555bfb019bb864f88e8af0b79c1c4f
+  - enabled: 1
+    path: Assets/Scenes/FunnyScene.EXE.unity
+    guid: 355c008e42e347744b993781967e737c
   m_configObjects: {}
