@@ -25,9 +25,11 @@ public class GameController : MonoBehaviour
     {
         switch(GameState){
             case GameStates.PotionState:
+                AudioManager.instance.Play("Transition to Potion");
                 GameState = GameStates.PlatformState;
                 break;
             case GameStates.PlatformState:
+                AudioManager.instance.Play("Transition to Gameplay");
                 SceneController.instance.FadeToLevel(SceneManager.GetActiveScene().buildIndex);   
                 break;
         }
