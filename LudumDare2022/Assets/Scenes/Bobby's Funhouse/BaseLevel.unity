@@ -2258,11 +2258,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4770974162273451382, guid: f673f800681f5bc419e52ad1156dbfcc, type: 3}
       propertyPath: jumpConstant
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4770974162273451382, guid: f673f800681f5bc419e52ad1156dbfcc, type: 3}
       propertyPath: speedConstant
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4770974162273451386, guid: f673f800681f5bc419e52ad1156dbfcc, type: 3}
       propertyPath: m_RootOrder

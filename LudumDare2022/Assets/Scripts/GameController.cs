@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     CountdownTimer Timer;
     public GameStates GameState;
     private GameObject player;
+    [SerializeField] KeyCode SkipTimer = KeyCode.Return;
     
     void Awake()
     {
@@ -24,7 +25,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (Timer.currentTime < 9.5f && Input.GetKeyDown(KeyCode.Return))
+        if (Timer.currentTime < 9.5f && Input.GetKeyDown(SkipTimer))
         {
             changeState();
             Timer.currentTime = 10.0f;

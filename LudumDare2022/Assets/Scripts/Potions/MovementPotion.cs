@@ -13,11 +13,13 @@ public class MovementPotion : Potion
     }
     public override void ApplyEffect()
     {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         playerController.MultiplySpeedMultiplier(speedMultiplier);
     }
 
     public override void RemoveEffect()
     {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         playerController.MultiplySpeedMultiplier(1/speedMultiplier);
     }
 }

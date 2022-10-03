@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Editable Variables
-    [SerializeField] public float speedConstant = 1.5f;
-    [SerializeField] public float jumpConstant = 2; 
+    [SerializeField] public float speedConstant = 1f;
+    [SerializeField] public float jumpConstant = 1; 
     [SerializeField] public float size = 1;
 
     [SerializeField] public float sizeSpeedScalar = 1;
@@ -33,7 +33,8 @@ public class PlayerController : MonoBehaviour
     private int jumpMax = 1;
     private int jumpCount = 0;
     public bool bIsJump = true;
-    private float tileMultiplier = 2;
+    private float tileMultiplier = 3;
+
 
     // Start is called before the first frame update
 
@@ -55,6 +56,17 @@ public class PlayerController : MonoBehaviour
         /************\
         |  Movement  |
         \************/
+        //Disables based on potion state
+        switch (GameController.instance.GameState)
+        {
+            case GameStates.PotionState:
+                return;
+            case GameStates.PlatformState:
+                break;
+        }
+
+
+
 
         //Left and Right Movement
         playerBody.velocity = new Vector2(speedConstant * sizeSpeedScalar * speedMultiplier * tileMultiplier * Input.GetAxis("Horizontal"), playerBody.velocity.y);

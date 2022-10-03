@@ -19,6 +19,14 @@ public class AnimController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Disables based on potion state
+        switch (GameController.instance.GameState)
+        {
+            case GameStates.PotionState:
+                return;
+            case GameStates.PlatformState:
+                break;
+        }
         anim.SetBool("Run", Input.GetAxis("Horizontal") != 0);
 
         if (Input.GetAxis("Horizontal") > 0.1)
