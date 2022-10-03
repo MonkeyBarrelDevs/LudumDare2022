@@ -17,6 +17,7 @@ public class GravityPotion : Potion
     private void GravFlip()
     {
         Physics2D.gravity = -Physics2D.gravity;
+        AudioManager.instance.Play("Change Gravity");
         //make character sprite flip n things
     }
 }

@@ -13,11 +13,17 @@ public class PotionManager : MonoBehaviour
     [SerializeField] int maxPotions = 3;
     public List<Potion> usablePotions = new();
     public List<Potion> activePotions = new();
+    private string[] SelectPotionSounds;
+    private string[] DrinkPotionSounds;
+    private string[] DeselectPotionSounds;
 
-    
     void Awake()
     {
         instance = this;
+        SelectPotionSounds = new string[3] {"Select Potion 1", "Select Potion 2", "Select Potion 3" };
+        DeselectPotionSounds = new string[3] { "Deselect 1", "Deselect 2", "Deselect 3" };
+        DrinkPotionSounds = new string[4] { "Drink 1", "Drink 2", "Drink 3", "Drink 4" };
+        
     }
 
     void Start()
@@ -40,6 +46,7 @@ public class PotionManager : MonoBehaviour
             activePotions.Add(potion);
             usablePotions.Remove(potion);
             Destroy(potionInventoryLayout.transform.GetChild(0).gameObject);
+            AudioManager.instance.PlayRandom(DrinkPotionSounds);
         }
     }
     public void RemoveNextEffect()
@@ -69,6 +76,7 @@ public class PotionManager : MonoBehaviour
             Button button = Instantiate(potionButtonPrefab, potionInventoryLayout.transform);
             button.image.sprite = potion.ItemSprite;
             button.onClick.AddListener(delegate{RemoveUsablePotion(button);});
+            AudioManager.instance.PlayRandom(SelectPotionSounds);
         }
     }
 
@@ -78,6 +86,8 @@ public class PotionManager : MonoBehaviour
            return;
         int siblingIndex = button.transform.GetSiblingIndex();
         usablePotions.RemoveAt(siblingIndex);
+        AudioManager.instance.PlayRandom(DeselectPotionSounds);
         Destroy(button.gameObject);
+
     }
 }
