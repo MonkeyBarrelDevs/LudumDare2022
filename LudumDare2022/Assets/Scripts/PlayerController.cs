@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider2D playerCollider;
     [SerializeField] public PotionManager potManager;
     private GameObject player;
+
 
     //Potion Variables
     private float sizeConstant;
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour
         /************\
         |  Movement  |
         \************/
+        //Detect Gravity
 
         //Left and Right Movement
         playerBody.velocity = new Vector2(speedConstant * speedMultiplier * tileMultiplier * Input.GetAxis("Horizontal"), playerBody.velocity.y);
@@ -58,7 +61,7 @@ public class PlayerController : MonoBehaviour
         //Jump
         if (Input.GetKeyDown(Jump) && jumpCount < jumpMax)
         {
-            playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpConstant);
+            playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpConstant * -MathF.Sign(Physics2D.gravity.y));
             jumpCount++;
             player.GetComponent<AnimController>().SetJumpAnim(true);
         }
