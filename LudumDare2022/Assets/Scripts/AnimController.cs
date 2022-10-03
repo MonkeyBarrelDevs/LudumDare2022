@@ -8,12 +8,16 @@ public class AnimController : MonoBehaviour
     private Animator anim;
     private Rigidbody2D body;
     private GameObject player;
+    PlayerController playerController;
+
+    private float size;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -29,14 +33,20 @@ public class AnimController : MonoBehaviour
         }
         anim.SetBool("Run", Input.GetAxis("Horizontal") != 0);
 
-        if (Input.GetAxis("Horizontal") > 0.1)
-            transform.localScale = new Vector2(-1, transform.localScale.y);
-        else if (Input.GetAxis("Horizontal") < -0.1)
-            transform.localScale = new Vector2(1, transform.localScale.y);
+        size = playerController.size;
 
-        transform.localScale = new Vector2(transform.localScale.x, -MathF.Sign(Physics2D.gravity.y));
-       
-        anim.SetBool("IsVertical", player.GetComponent<Rigidbody2D>().velocity.y * transform.localScale.y < 0);
+        if (Input.GetAxis("Horizontal") > 0.1)
+        {
+            transform.localScale = new Vector2(-1 * size, 1 * size);
+            transform.localScale = new Vector2(-1 * size, -MathF.Sign(Physics2D.gravity.y) * size);
+        }
+        else if (Input.GetAxis("Horizontal") < -0.1)
+        { 
+            transform.localScale = new Vector2(1 * size, 1 * size);
+            transform.localScale = new Vector2(1 * size, -MathF.Sign(Physics2D.gravity.y) * size);
+        }
+
+        anim.SetBool("IsVertical", player.GetComponent<Rigidbody2D>().velocity.y * -MathF.Sign(Physics2D.gravity.y) < 0);
 
     }
 

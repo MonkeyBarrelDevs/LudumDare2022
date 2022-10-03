@@ -105,8 +105,8 @@ public class PlayerController : MonoBehaviour
 
     public void SetSize(float scale)
     {
-        transform.localScale = new Vector3(scale,scale/2,scale);
-        Debug.Log(transform.localScale);
+        transform.localScale = new Vector2(scale,scale);
+        size = scale;
         sizeSpeedScalar = scale;
         sizeJumpScalar = scale; 
     }
