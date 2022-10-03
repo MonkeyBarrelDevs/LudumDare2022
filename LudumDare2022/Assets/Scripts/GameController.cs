@@ -17,10 +17,20 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Timer = GameObject.Find("Canvas").GetComponent<CountdownTimer>();
+        Timer = GameObject.FindGameObjectWithTag("Countdown Timer").GetComponent<CountdownTimer>();
         GameState = GameStates.PotionState;
         player = GameObject.FindGameObjectWithTag("Player");
     }
+
+    private void Update()
+    {
+        if (Timer.currentTime < 9.5f && Input.GetKeyDown(KeyCode.Return))
+        {
+            changeState();
+            Timer.currentTime = 10.0f;
+        }
+    }
+
     public void changeState()
     {
         switch(GameState){
@@ -30,7 +40,7 @@ public class GameController : MonoBehaviour
                 break;
             case GameStates.PlatformState:
                 AudioManager.instance.Play("Transition to Gameplay");
-                SceneController.instance.FadeToLevel(SceneManager.GetActiveScene().buildIndex);   
+                SceneController.instance.FadeToLevel(SceneManager.GetActiveScene().buildIndex);
                 break;
         }
     }

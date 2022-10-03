@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Editable Variables
-    [SerializeField] public float speedConstant = 3;
-    [SerializeField] public float jumpConstant = 3; 
+    [SerializeField] public float speedConstant = 1.5f;
+    [SerializeField] public float jumpConstant = 2; 
     [SerializeField] public float size = 1;
 
     [SerializeField] public float sizeSpeedScalar = 1;
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(Jump) && jumpCount < jumpMax)
         {
             isGrounded = false;
-            playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpConstant * sizeJumpScalar * -MathF.Sign(Physics2D.gravity.y));
+            playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpConstant * -MathF.Sign(Physics2D.gravity.y));
             jumpCount++;
             player.GetComponent<AnimController>().SetJumpAnim(true);
             AudioManager.instance.Play("Jump");
@@ -85,8 +85,10 @@ public class PlayerController : MonoBehaviour
         //Use Potion
         if (Input.GetKeyDown(UsePotion))
         {
-            potManager.ApplyNextEffect();
+            PotionManager.instance.ApplyNextEffect();
         }
+
+        
     }
 
     public void SetSize(float scale)

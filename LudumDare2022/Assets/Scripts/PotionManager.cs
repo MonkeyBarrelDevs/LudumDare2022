@@ -23,7 +23,6 @@ public class PotionManager : MonoBehaviour
         SelectPotionSounds = new string[3] {"Select Potion 1", "Select Potion 2", "Select Potion 3" };
         DeselectPotionSounds = new string[3] { "Deselect 1", "Deselect 2", "Deselect 3" };
         DrinkPotionSounds = new string[4] { "Drink 1", "Drink 2", "Drink 3", "Drink 4" };
-        
     }
 
     void Start()
@@ -89,4 +88,5 @@ public class PotionManager : MonoBehaviour
         AudioManager.instance.PlayRandom(DeselectPotionSounds);
         Destroy(button.gameObject);
     }
+
 }
