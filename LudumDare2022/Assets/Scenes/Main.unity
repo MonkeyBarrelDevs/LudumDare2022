@@ -191,6 +191,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &786270581 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6685205757081733226, guid: 2410a526b64d80b4697a41628b9f5641, type: 3}
+  m_PrefabInstance: {fileID: 1176761909}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &842370972
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,9 +875,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 600
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1200, y: 900}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -887,8 +892,8 @@ Canvas:
   m_GameObject: {fileID: 2015020063}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 786270581}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -977,10 +982,6 @@ PrefabInstance:
     - target: {fileID: 7424289332971889615, guid: 7ab17884fd79eea4c9317b2aec8c88c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7424289333111251909, guid: 7ab17884fd79eea4c9317b2aec8c88c3, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ab17884fd79eea4c9317b2aec8c88c3, type: 3}
