@@ -88,6 +88,5 @@ public class PotionManager : MonoBehaviour
         usablePotions.RemoveAt(siblingIndex);
         AudioManager.instance.PlayRandom(DeselectPotionSounds);
         Destroy(button.gameObject);
-
     }
 }

@@ -7,6 +7,7 @@ public class SpikesScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")){
+            AudioManager.instance.Play("Spike Death");
             GameController.instance.changeState();
         }
     }

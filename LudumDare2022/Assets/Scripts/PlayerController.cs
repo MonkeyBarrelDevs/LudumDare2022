@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private KeyCode Jump;
     [SerializeField] private KeyCode UsePotion;
 
+
     //Components
     private Rigidbody2D playerBody;
     private CapsuleCollider2D playerCollider;
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
 
+
     }
 
     // Update is called once per frame
@@ -55,7 +57,7 @@ public class PlayerController : MonoBehaviour
         \************/
 
         //Left and Right Movement
-        playerBody.velocity = new Vector2(speedConstant * speedMultiplier * tileMultiplier * Input.GetAxis("Horizontal"), playerBody.velocity.y);
+        playerBody.velocity = new Vector2(speedConstant * sizeSpeedScalar * speedMultiplier * tileMultiplier * Input.GetAxis("Horizontal"), playerBody.velocity.y);
         if (isGrounded)
         {
             if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0)
@@ -74,7 +76,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(Jump) && jumpCount < jumpMax)
         {
             isGrounded = false;
-            playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpConstant * -MathF.Sign(Physics2D.gravity.y));
+            playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpConstant * sizeJumpScalar * -MathF.Sign(Physics2D.gravity.y));
             jumpCount++;
             player.GetComponent<AnimController>().SetJumpAnim(true);
             AudioManager.instance.Play("Jump");
@@ -91,6 +93,8 @@ public class PlayerController : MonoBehaviour
     {
         gameObject.transform.localScale = new Vector2(scale,scale);
         size = scale/sizeConstant;
+        sizeSpeedScalar = scale / sizeConstant;
+        sizeJumpScalar = scale / sizeConstant; 
     }
     public void MultiplySpeedMultiplier(float scale)
     {
