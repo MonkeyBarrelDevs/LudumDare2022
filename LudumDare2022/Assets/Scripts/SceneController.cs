@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public static event Action<string, string> OnLevelOutEvent;
+
     public static SceneController instance;
     public Animator animator;
     private int levelToLoad;
@@ -22,7 +25,7 @@ public class SceneController : MonoBehaviour
             return;
         }
     }
-    
+
     public void FadeToLevel(int levelIndex)
     {
         Time.timeScale = 0f;
@@ -32,8 +35,13 @@ public class SceneController : MonoBehaviour
 
     public void OnFadeComplete()
     {
+        Physics2D.gravity = Physics2D.gravity * -MathF.Sign(Physics2D.gravity.y);
         SceneManager.LoadScene(levelToLoad);
         animator.SetTrigger("FadeIn");
+    }
+
+    public void onFadeInStart()
+    {
     }
 
     public void onFadeInComplete()
@@ -44,5 +52,10 @@ public class SceneController : MonoBehaviour
     public void gameEnd()
     {
         Application.Quit();
+    }
+
+    public static string GetActiveSceneName() 
+    {
+        return SceneManager.GetActiveScene().name;
     }
 }

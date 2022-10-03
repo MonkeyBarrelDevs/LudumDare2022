@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LSDTilesAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -1496870780, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: -1023890018, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: 317487019, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: 1184275153, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: 1347681067, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: -2000194001, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: -1648125762, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: 664371933, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: 1080214419, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: 1324700269, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: 406059132, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: -963843152, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: -1266563558, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: 20395251, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: 1434326879, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: -1330465325, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: -1882638829, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: -1041596723, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  - {fileID: -899478678, guid: 4c32f7d9c3f4ca6429cf2e82fb0b5a7e, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - TILESET_LSD_18
+  - TILESET_LSD_17
+  - TILESET_LSD_16
+  - TILESET_LSD_15
+  - TILESET_LSD_14
+  - TILESET_LSD_13
+  - TILESET_LSD_12
+  - TILESET_LSD_11
+  - TILESET_LSD_10
+  - TILESET_LSD_4
+  - TILESET_LSD_5
+  - TILESET_LSD_6
+  - TILESET_LSD_7
+  - TILESET_LSD_0
+  - TILESET_LSD_1
+  - TILESET_LSD_2
+  - TILESET_LSD_3
+  - TILESET_LSD_8
+  - TILESET_LSD_9
+  m_RenderDataMap: {}
+  m_Tag: LSDTilesAtlas
+  m_IsVariant: 0

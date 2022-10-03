@@ -70,15 +70,10 @@ public class PlayerController : MonoBehaviour
 
         //Left and Right Movement
         playerBody.velocity = new Vector2(speedConstant * sizeSpeedScalar * speedMultiplier * tileMultiplier * Input.GetAxis("Horizontal"), playerBody.velocity.y);
-        if (isGrounded)
+        if (isGrounded && Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0)
         {
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0)
-            {
-                if(!AudioManager.instance.isPlaying("Run"))
-                    AudioManager.instance.Play("Run");
-            }
-            else
-                AudioManager.instance.Stop("Run");
+            if(!AudioManager.instance.isPlaying("Run"))
+                AudioManager.instance.Play("Run");
         }
         else
             AudioManager.instance.Stop("Run");
@@ -90,7 +85,6 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpConstant * -MathF.Sign(Physics2D.gravity.y));
             jumpCount++;
-            player.GetComponent<AnimController>().SetJumpAnim(true);
             AudioManager.instance.Play("Jump");
         }
 
@@ -123,7 +117,6 @@ public class PlayerController : MonoBehaviour
             if(jumpCount > 0)
                 AudioManager.instance.Play("Land");
             jumpCount = 0;
-            player.GetComponent<AnimController>().SetJumpAnim(false);
         }
     }
 

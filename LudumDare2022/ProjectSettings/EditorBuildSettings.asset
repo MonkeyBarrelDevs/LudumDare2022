@@ -12,12 +12,54 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: d2215c93671f8314086afad4db734ef4
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
-    guid: d139c98efa87ec745b0e2c9023d5435f
+    path: Assets/Scenes/Levels/Level_0.unity
+    guid: 17f32da138c92b84881a016734241355
   - enabled: 1
-    path: Assets/Scenes/PlayerTest.unity
-    guid: af555bfb019bb864f88e8af0b79c1c4f
+    path: Assets/Scenes/Levels/Levels_1/Level_G.unity
+    guid: 3d273487b21a649469e53bfadce6985b
   - enabled: 1
-    path: Assets/Scenes/FunnyScene.EXE.unity
-    guid: 355c008e42e347744b993781967e737c
+    path: Assets/Scenes/Levels/Levels_1/Level_J.unity
+    guid: 80d350f1f36c36647869a45a75589fd3
+  - enabled: 1
+    path: Assets/Scenes/Levels/Levels_1/Level_P.unity
+    guid: e29f3344ed62bce4ab8491c0aaa27269
+  - enabled: 1
+    path: Assets/Scenes/Levels/Levels_1/Level_S.unity
+    guid: a55b16ca83e071949a13b90fad31676b
+  - enabled: 1
+    path: Assets/Scenes/Levels/Levels_1/Level_T.unity
+    guid: f16c76a5be2e54e4792c3cd6f3deea6b
+  - enabled: 1
+    path: Assets/Scenes/Levels/Levels_2/Level_GP.unity
+    guid: 0e00a20eb8aeb4f498416c637bbc44fc
+  - enabled: 1
+    path: Assets/Scenes/Levels/Levels_2/Level_JG.unity
+    guid: 466c72b764ec17e4787ee8299e468a8e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Levels_2/Level_JJ.unity
+    guid: b46408e3a1685d54cb755f4ea692452f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Levels_2/Level_JS.unity
+    guid: 74a96a0852d533140ac9cb6de8b0cf55
+  - enabled: 1
+    path: Assets/Scenes/Levels/Levels_2/Level_JT.unity
+    guid: 7d1b5331b2637bd42a737742302f0c0f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Levels_2/Level_TG.unity
+    guid: aaa2dbe11c8ec534c87633b1340f1b3c
+  - enabled: 1
+    path: Assets/Scenes/Levels/Levels_3/Level_PPJ.unity
+    guid: 583bb1d4b6bd7d547aa37a9e7156555a
+  - enabled: 1
+    path: Assets/Scenes/Levels/Levels_3/Level_TGT.unity
+    guid: 587a60d89b28c10419f71c24390c6815
+  - enabled: 1
+    path: Assets/Scenes/Levels/Levels_3/Level_TGC.unity
+    guid: 0bbe2f74952435a4f955a1e2ee02d4e9
+  - enabled: 1
+    path: Assets/Scenes/Levels/Levels_3/Level_TJG.unity
+    guid: 62a7852564b260146bd5af0ce62789b0
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: fe7c4573aa22d6f4a950cfcbb8bec17e
   m_configObjects: {}

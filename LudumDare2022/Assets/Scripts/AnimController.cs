@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class AnimController : MonoBehaviour
 {
+    [SerializeField] float airAnimThreshold = .05f;
+
     private Animator anim;
     private Rigidbody2D body;
     private GameObject player;
@@ -46,8 +48,10 @@ public class AnimController : MonoBehaviour
             transform.localScale = new Vector2(1 * size, -MathF.Sign(Physics2D.gravity.y) * size);
         }
 
-        anim.SetBool("IsVertical", player.GetComponent<Rigidbody2D>().velocity.y * -MathF.Sign(Physics2D.gravity.y) < 0);
+        float playerVelocity = player.GetComponent<Rigidbody2D>().velocity.y;
 
+        SetJumpAnim(MathF.Abs(playerVelocity) > airAnimThreshold);
+        anim.SetBool("IsVertical", playerVelocity * -MathF.Sign(Physics2D.gravity.y) < 0);
     }
 
     public void SetJumpAnim(bool bAnim)
