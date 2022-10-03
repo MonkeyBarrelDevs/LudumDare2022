@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
             playerBody.velocity = new Vector2(playerBody.velocity.x, tileMultiplier * jumpConstant * -MathF.Sign(Physics2D.gravity.y));
             jumpCount++;
             player.GetComponent<AnimController>().SetJumpAnim(true);
+            AudioManager.instance.Play("Jump");
         }
 
         //Use Potion
