@@ -52,8 +52,6 @@ public class PlayerController : MonoBehaviour
         /************\
         |  Movement  |
         \************/
-        //Detect Gravity
-        //Physics2D.gravity.Set(Physics2D.gravity.x, Physics2D.gravity.y * -1);
 
         //Left and Right Movement
         playerBody.velocity = new Vector2(speedConstant * speedMultiplier * tileMultiplier * Input.GetAxis("Horizontal"), playerBody.velocity.y);
