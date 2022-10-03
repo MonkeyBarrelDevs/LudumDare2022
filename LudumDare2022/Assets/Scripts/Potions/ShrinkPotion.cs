@@ -11,11 +11,13 @@ public class ShrinkPotion : Potion
     }
     public override void ApplyEffect()
     {
+        playerObj = GameObject.FindGameObjectWithTag("Player");
         playerObj.GetComponent<PlayerController>().SetSize(.5f);
     }
 
     public override void RemoveEffect()
     {
+        playerObj = GameObject.FindGameObjectWithTag("Player");
         playerObj.GetComponent<PlayerController>().SetSize(1f);
     }
 }

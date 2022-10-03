@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class JumpPotion : Potion
 {
-    [SerializeField] private float jumpPower = 3;
+    [SerializeField] private float jumpPower = 1;
 
-    private float tileMultiplier = 3;
+    private float tileMultiplier = 2;
     private Rigidbody2D playerBody;
     private PlayerController playerController;
 

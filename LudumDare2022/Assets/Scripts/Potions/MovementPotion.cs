@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovementPotion : Potion
 {
     [Range(1, 2)]
-    [SerializeField] float speedMultiplier = 2;
+    [SerializeField] float speedMultiplier = 1.25f;
     private PlayerController playerController;
     void Start()
     {
@@ -14,7 +14,7 @@ public class MovementPotion : Potion
     public override void ApplyEffect()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        playerController.MultiplySpeedMultiplier(speedMultiplier);
+        playerController.MultiplySpeedMultiplier(1.5f);
     }
 
     public override void RemoveEffect()

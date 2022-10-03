@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private int jumpMax = 1;
     private int jumpCount = 0;
     public bool bIsJump = true;
-    private float tileMultiplier = 3;
+    private float tileMultiplier = 2;
 
 
     // Start is called before the first frame update
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         playerBody = GetComponent<Rigidbody2D>();
 
-        gameObject.transform.localScale = new Vector2(size, size);
+        gameObject.transform.localScale = new Vector3(size, size, size);
         sizeConstant = size;
 
         player = GameObject.FindGameObjectWithTag("Player");
@@ -105,10 +105,10 @@ public class PlayerController : MonoBehaviour
 
     public void SetSize(float scale)
     {
-        gameObject.transform.localScale = new Vector2(scale,scale);
-        size = scale/sizeConstant;
-        sizeSpeedScalar = scale / sizeConstant;
-        sizeJumpScalar = scale / sizeConstant; 
+        transform.localScale = new Vector3(scale,scale/2,scale);
+        Debug.Log(transform.localScale);
+        sizeSpeedScalar = scale;
+        sizeJumpScalar = scale; 
     }
     public void MultiplySpeedMultiplier(float scale)
     {
