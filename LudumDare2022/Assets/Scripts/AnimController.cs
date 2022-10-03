@@ -22,12 +22,13 @@ public class AnimController : MonoBehaviour
         anim.SetBool("Run", Input.GetAxis("Horizontal") != 0);
 
         if (Input.GetAxis("Horizontal") > 0.1)
-            transform.localScale = new Vector2(-1, -MathF.Sign(Physics2D.gravity.y));
+            transform.localScale = new Vector2(-1, transform.localScale.y);
         else if (Input.GetAxis("Horizontal") < -0.1)
-            transform.localScale = new Vector2(1, -MathF.Sign(Physics2D.gravity.y));
+            transform.localScale = new Vector2(1, transform.localScale.y);
 
-
-        anim.SetBool("IsVertical", player.GetComponent<Rigidbody2D>().velocity.y < 0);
+        transform.localScale = new Vector2(transform.localScale.x, -MathF.Sign(Physics2D.gravity.y));
+       
+        anim.SetBool("IsVertical", player.GetComponent<Rigidbody2D>().velocity.y * transform.localScale.y < 0);
 
     }
 
